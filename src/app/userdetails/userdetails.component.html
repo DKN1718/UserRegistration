@@ -1,0 +1,42 @@
+<div *ngIf="userdata.length === 0">
+    <p class="no-records-message">No Records found! Please Register the user and revisit the page to view user details</p>
+  </div>
+  <div *ngIf="userdata.length == 1 && userdata[0] == null">
+    <p class="no-records-message">No Records found! Please Register the user and revisit the page to view user details</p>
+  </div>
+<div *ngIf="userdata.length > 0 && userdata[0] !== null">
+    <h2>Registered Users</h2>
+    <table class="user-details-table">
+      <thead>
+        <tr>
+          <th colspan="4">User Details</th>
+        </tr>
+        <tr>
+          <th>User Name</th>
+          <th>Email</th>
+          <th>Address</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let data of userdata; let i = index">
+          <td>{{ data.userName }}</td>
+          <td>{{ data.emailAddress }}</td>
+          <td>
+            <ul class="address-list" *ngFor="let item of addressList">
+              <li>City :{{ item.city }} 
+                <li>State :{{ item.state }} 
+                    <li>City :{{ item.pinCode }} 
+            </ul>
+          </td>
+          <td>
+            <button (click)="deleteRow(i)" class="delete-button">
+              <i class="material-icons">delete</i>
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  
+  

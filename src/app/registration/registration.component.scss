@@ -1,0 +1,72 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  .form-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .form-label {
+    font-weight: bold;
+  }
+  
+  .form-control {
+    width: 91%;
+    padding: 10px;
+    margin: 5px 0;
+  }
+  
+  .address-container {
+    margin-top: 10px;
+  }
+  
+  .address-fieldset {
+    border: 1px solid #ccc;
+    padding: 10px;
+  }
+  
+  .address-legend {
+    font-weight: bold;
+  }
+  
+  .add-address-button,
+.remove-address-button,
+.register-button {
+  padding: 10px 20px;
+  background-color: #007BFF;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: background-color 0.3s ease;
+  margin-right: 25px;
+  margin-bottom: 20px;
+}
+
+.add-address-button:hover,
+.remove-address-button:hover,
+.register-button:hover {
+  background-color: #0056b3;
+}
+
+.remove-address-button {
+  background-color: #dc3545;
+}
+
+.remove-address-button:hover {
+  background-color: #c82333;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+  }
+  
+.required{
+  color:red;
+} 

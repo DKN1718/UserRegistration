@@ -1,0 +1,77 @@
+<div class="container">
+  <h2 class="form-title">Sign In</h2>
+
+  <form [formGroup]="registrationForm" #f="ngForm">
+    <div class="form-group">
+      <div class="row">
+        <label for="username" class="form-label">User Name<span class="required-asterisk">*</span></label>
+        <input type="text" id="name" class="form-control" placeholder="Please enter user name" name="userName" formControlName="userName" required>
+        <div *ngIf="registrationForm.get('userName')?.hasError('required') && registrationForm.get('userName')?.hasError && submitted" class="error-message">
+          User Name is required.
+        </div>
+      </div>
+      <div class="row">
+        <label for="email" class="form-label">Email Address<span class="required-asterisk">*</span></label>
+        <input type="text" id="email" class="form-control" placeholder="Please enter Email Address" name="email" formControlName="emailAddress" required>
+        <div *ngIf="registrationForm.get('emailAddress')?.hasError('required') && registrationForm.get('emailAddress')?.hasError && submitted" class="error-message">
+          Email Address is required.
+        </div>
+        <div *ngIf="registrationForm.get('emailAddress')?.hasError('email') && registrationForm.get('emailAddress')?.hasError && submitted" class="error-message">
+          Please enter a valid email address.
+        </div>
+      </div>
+    </div>
+
+    <div formArrayName="addressess">
+      <div *ngFor="let address of addressList.controls; let i=index" class="address-container">
+        <fieldset class="address-fieldset">
+          <legend class="address-legend"><h4>Address{{ i + 1 }}:</h4></legend>
+          <div [formGroupName]="i">
+            <div class="form-inline">
+              <div class="form-group">
+                <div class="row">
+                  <label class="form-label" for="city">City<span class="required-asterisk">*</span></label>
+                  <input type="text" class="form-control" id="city" placeholder="City" name="type" formControlName="city" required>
+                  <div *ngIf="address.get('city')?.hasError('required') && address.get('city')?.hasError && submitted" class="error-message">
+                    City is required.
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <label class="form-label" for="state">State<span class="required-asterisk">*</span></label>
+                  <input type="text" class="form-control" id="state" placeholder="State" name="type" formControlName="state" required>
+                  <div *ngIf="address.get('state')?.hasError('required') && address.get('state')?.hasError && submitted" class="error-message">
+                    State is required.
+                  </div>
+                </div>
+                <br>
+                <div class="row">
+                  <label class="form-label" for="pincode">PinCode<span class="required-asterisk">*</span></label>
+                  <input type="text" class="form-control" id="pincode" placeholder="Pincode" name="type" formControlName="pinCode" required>
+                  <div *ngIf="address.get('pinCode')?.hasError('required') && address.get('pinCode')?.hasError && submitted" class="error-message">
+                    PIN Code is required.
+                  </div>
+                  <div *ngIf="address.get('pinCode')?.hasError('pattern') && address.get('pinCode')?.hasError && submitted" class="error-message">
+                    Please enter a valid number for PIN Code.
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </fieldset>
+      </div>
+    </div>
+<div class = "row">
+  <button type="button" class="btn btn-primary btn-sm add-address-button" (click)="addNewAddress()" [disabled]="control.length >= maxAddresses">
+    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add New Address
+  </button>
+
+  <button type="button" class="btn btn-danger remove-address-button" (click)="deleteAddress()">
+    <span class="glyphicon glyphicon-minus" aria-hidden="true"></span> Remove Address
+  </button>
+</div>
+   <div class="row">
+    <button type="submit" class="btn btn-success register-button" (click)="onSubmit()">Register User</button>
+   </div> 
+  </form>
+</div>

@@ -1,0 +1,31 @@
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background-color: #4c86a8;
+    color:#fff;
+}
+
+.logo img{
+    max-height: 40px;
+}
+
+.nav{
+    list-style: none;
+    display: flex;
+}
+
+.nav-item{
+    margin-right: 20px;
+    cursor:pointer;
+    color:#fff;
+}
+
+.profile img{
+    width: 40px;
+    height:40px;
+    border-radius: 50%;
+    border:2px solid #fff;
+    cursor: pointer;
+}
